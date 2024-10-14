@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/Proyecto_Web_Java"/>
+<Context path="/Proyecto_Web_Java">
+
+    <Resource 
+        name="jdbc/Productos"
+        auth="Container"
+        type="javax.sql.DataSource"
+        maxActive="15"
+        maxIdle="3"
+        maxWait="5000"
+        username="root"
+        password=""
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/pruebas"
+    ></Resource>
+        
+    
+    
+</Context>
