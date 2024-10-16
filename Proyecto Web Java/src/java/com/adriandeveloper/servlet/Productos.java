@@ -15,14 +15,14 @@ public class Productos {
     private String seccion;
     private String nArt;
     private double precio;
-    private Date fecha;
+    private String fecha;
     private String importado;
     private String pOrig;
 
     public Productos() {
     }
 
-    public Productos(String seccion, String nArt, double precio, Date fecha, String importado, String pOrig) {
+    public Productos(String seccion, String nArt, double precio, String fecha, String importado, String pOrig) {
         this.seccion = seccion;
         this.nArt = nArt;
         this.precio = precio;
@@ -31,7 +31,7 @@ public class Productos {
         this.pOrig = pOrig;
     }
 
-    public Productos(String cArt, String seccion, String nArt, double precio, Date fecha, String importado, String pOrig) {
+    public Productos(String cArt, String seccion, String nArt, double precio, String fecha, String importado, String pOrig) {
         this.cArt = cArt;
         this.seccion = seccion;
         this.nArt = nArt;
@@ -73,11 +73,11 @@ public class Productos {
         this.precio = precio;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

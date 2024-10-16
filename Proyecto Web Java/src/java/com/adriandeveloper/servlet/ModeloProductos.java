@@ -40,7 +40,7 @@ public class ModeloProductos {
                     miResultSet.getString(2),  // 2: sección
                     miResultSet.getString(3),    // 3: nombre del artículo
                     miResultSet.getDouble(4),   // 4: precio
-                    miResultSet.getDate(5),      // 5: fecha
+                    miResultSet.getString(5),      // 5: fecha
                     miResultSet.getString(6),// 6: importado
                     miResultSet.getString(7)    // 7: país de origen
                 );
