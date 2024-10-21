@@ -34,7 +34,8 @@
 </head>
 <body>
     <h2>Formulario de Registro de Artículo</h2>
-    <form action="procesarFormulario" method="post">
+    <form action="ControladorProductos" method="get">
+        <input type="hidden" name="instruccion" value="insertarBBDD"/>
         <table border="1">
             <tr>
                 <td><label for="cArt">Código de Artículo:</label></td>

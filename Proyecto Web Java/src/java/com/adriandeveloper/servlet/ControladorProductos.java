@@ -17,17 +17,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-
 /**
  *
  * @author Admin
  */
 @WebServlet(name = "ControladorProductos", urlPatterns = {"/ControladorProductos"})
 public class ControladorProductos extends HttpServlet {
-    
+
     private ModeloProductos modeloProductos;
-    
-    @Resource(name="jdbc/Productos")
+
+    @Resource(name = "jdbc/Productos")
     private DataSource pool;
 
     @Override
@@ -35,11 +34,46 @@ public class ControladorProductos extends HttpServlet {
         super.init();
         modeloProductos = new ModeloProductos(pool);
     }
-    
-    
-    
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String comando = request.getParameter("instruccion");
+        if(comando == null){
+            comando = "listar";
+        }
+        switch (comando) {
+            case "insertarBBDD" ->
+                insertarProducto(request, response);
+            default ->
+                listarProductos(request, response);
+        }
+
+        listarProductos(request, response);
+
+    }
+
+    private void insertarProducto(HttpServletRequest request, HttpServletResponse response) {
+        // Obtener parámetros del formulario
+        String codArticulo = request.getParameter("cArt");
+        String seccion = request.getParameter("seccion");
+        String nombreArticulo = request.getParameter("nArt");
+        String precio = request.getParameter("precio");
+        String fecha = request.getParameter("fecha");
+        String importado = request.getParameter("importado");
+        String paisOrigen = request.getParameter("pOrig");
+
+        // Procesar los valores (por ejemplo, convertir tipos de datos si es necesario)
+        double precioDouble = Double.parseDouble(precio);
+        
+        Productos p = new Productos(codArticulo,seccion,nombreArticulo,precioDouble,fecha,importado,paisOrigen);
+        
+        modeloProductos.insertarProducto(p);
+        
+        listarProductos(request,response);
+    }
+
+    private void listarProductos(HttpServletRequest request, HttpServletResponse response) {
         List<Productos> productos;
         try {
             //obtener la lista de productos
@@ -53,13 +87,5 @@ public class ControladorProductos extends HttpServlet {
             ex.printStackTrace();
         }
     }
-
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-       
-    }
-
-    
 
 }
