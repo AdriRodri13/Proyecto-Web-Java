@@ -53,6 +53,35 @@ public class ModeloProductos {
 
         return productos;
     }
+    
+    public Productos getProducto(String cArt) throws Exception{
+        String sql = "SELECT * FROM PRODUCTOS WHERE CÓDIGOARTÍCULO = ?";
+        
+        try(Connection conexion = datos.getConnection();
+            PreparedStatement consulta = conexion.prepareStatement(sql)){
+            consulta.setString(1, cArt);
+            ResultSet rs = consulta.executeQuery();
+            if(rs.next()){
+                Productos producto = new Productos(
+                        cArt, // 1: código del artículo
+                        rs.getString(2), // 2: sección
+                        rs.getString(3), // 3: nombre del artículo
+                        rs.getDouble(4), // 4: precio
+                        rs.getString(5), // 5: fecha
+                        rs.getString(6),// 6: importado
+                        rs.getString(7) // 7: país de origen
+                );
+                return producto;
+            }
+        }catch(SQLException ex){
+            // Log the error
+            Logger.getLogger(ModeloProductos.class.getName()).log(Level.SEVERE, "Error en la inserción de datos", ex);
+
+            // Detener la aplicación lanzando una excepción no chequeada
+            throw new RuntimeException("Error en la inserción de datos", ex);
+        }
+        throw new Exception("No hemos encontrado el producto con el codigo" + cArt);
+    }
 
     public void insertarProducto(Productos p) {
         String sql = "INSERT INTO productos (CÓDIGOARTÍCULO, SECCIÓN, NOMBREARTÍCULO, PRECIO, FECHA, IMPORTADO, PAÍSDEORIGEN) VALUES (?,?,?,?,?,?,?)";
@@ -67,6 +96,46 @@ public class ModeloProductos {
             consulta.setString(7, p.getpOrig());
             consulta.execute();
         } catch (SQLException ex) {
+            // Log the error
+            Logger.getLogger(ModeloProductos.class.getName()).log(Level.SEVERE, "Error en la inserción de datos", ex);
+
+            // Detener la aplicación lanzando una excepción no chequeada
+            throw new RuntimeException("Error en la inserción de datos", ex);
+        }
+    }
+    
+    public void actualizarProducto(Productos p){
+        String sql ="UPDATE PRODUCTOS SET SECCIÓN=?,NOMBREARTÍCULO=?,PRECIO=?,"
+                + "FECHA=?,IMPORTADO=?,PAÍSDEORIGEN=? WHERE CÓDIGOARTÍCULO=?";
+        
+        try(Connection conexion = datos.getConnection();
+            PreparedStatement consulta = conexion.prepareStatement(sql)){
+            consulta.setString(1, p.getSeccion());
+            consulta.setString(2, p.getnArt());
+            consulta.setDouble(3, p.getPrecio());
+            consulta.setString(4, p.getFecha());
+            consulta.setString(5, p.getImportado());
+            consulta.setString(6, p.getpOrig());
+            consulta.setString(7, p.getcArt());
+            consulta.execute();
+        }catch(SQLException ex){
+            // Log the error
+            Logger.getLogger(ModeloProductos.class.getName()).log(Level.SEVERE, "Error en la inserción de datos", ex);
+
+            // Detener la aplicación lanzando una excepción no chequeada
+            throw new RuntimeException("Error en la inserción de datos", ex);
+        }
+    }
+
+    public void eliminarProducto(String cArt) {
+        
+        String sql = "DELETE FROM PRODUCTOS WHERE CÓDIGOARTÍCULO = ?";
+        
+        try(Connection conexion = datos.getConnection();
+            PreparedStatement consulta = conexion.prepareStatement(sql)){
+            consulta.setString(1,cArt);
+            consulta.execute();
+        }catch(SQLException ex){
             // Log the error
             Logger.getLogger(ModeloProductos.class.getName()).log(Level.SEVERE, "Error en la inserción de datos", ex);
 

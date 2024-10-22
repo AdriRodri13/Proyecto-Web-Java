@@ -37,11 +37,13 @@
             <%
                 // Supongamos que tienes un objeto tempProd disponible
                 String baseUrl = "ControladorProductos";
-                String instruccion = "actualizar";
+                String instruccion = "cargar";
+                String instruccion2 = "eliminar";
                 String cArticulo = tempProd.getcArt(); // Obtener el nombre del artículo
-
+                
                 // Construir la URL completa con parámetros
                 String linkTemp = String.format("%s?instruccion=%s&CArticulo=%s", baseUrl, instruccion, URLEncoder.encode(cArticulo, "UTF-8"));
+                String linkElim = String.format("%s?instruccion=%s&CArticulo=%s", baseUrl, instruccion2, URLEncoder.encode(cArticulo,"UTF-8"));
             %>
             <tr>
 
@@ -52,7 +54,7 @@
                 <td><%=tempProd.getPrecio()%></td>
                 <td><%=tempProd.getImportado()%></td>
                 <td><%=tempProd.getpOrig()%></td>
-                <td><a href="<%= linkTemp %>">Actualizar</a></td>
+                <td><a href="<%= linkTemp %>">Actualizar</a>&nbsp;&nbsp;&nbsp;<a href="<%= linkElim %>">Eliminar</a></td>
 
 
             </tr>
