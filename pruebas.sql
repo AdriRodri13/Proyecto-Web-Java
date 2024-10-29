@@ -1,0 +1,97 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-10-2024 a las 23:42:08
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `pruebas`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `CÓDIGOARTÍCULO` varchar(512) DEFAULT NULL,
+  `SECCIÓN` varchar(512) DEFAULT NULL,
+  `NOMBREARTÍCULO` varchar(512) DEFAULT NULL,
+  `PRECIO` double DEFAULT NULL,
+  `FECHA` varchar(512) DEFAULT NULL,
+  `IMPORTADO` varchar(512) DEFAULT NULL,
+  `PAÍSDEORIGEN` varchar(512) DEFAULT NULL,
+  `FOTO` varchar(512) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`CÓDIGOARTÍCULO`, `SECCIÓN`, `NOMBREARTÍCULO`, `PRECIO`, `FECHA`, `IMPORTADO`, `PAÍSDEORIGEN`, `FOTO`) VALUES
+('AR01', 'FERRETERÍA', 'DESTORNILLADO', 6.63, '2024-10-04', 'Si', 'ESPAÑA', ''),
+('AR02', 'CONFECCIÓN', 'TRAJE CABALLERO', 284.58, '3/11/02', 'TRUE', 'ITALIA', ''),
+('AR03', 'JUGUETERÍA', 'COCHE TELEDIRIGIDO', 159.45, '5/26/02', 'TRUE', 'MARRUECOS', ''),
+('AR04', 'DEPORTES', 'RAQUETA TENIS', 93.47, '3/20/00', 'TRUE', 'USA', ''),
+('AR06', 'DEPORTES', 'MANCUERNAS', 60, '9/13/00', 'TRUE', 'USA', ''),
+('AR07', 'CONFECCIÓN', 'SERRUCHO', 30.2, '3/23/01', 'TRUE', 'FRANCIA', ''),
+('AR08', 'JUGUETERÍA', 'CORREPASILLOS', 103.34, '4/11/00', 'TRUE', 'JAPÓN', ''),
+('AR09', 'CONFECCIÓN', 'PANTALÓN SEÑORA', 174.23, '1/10/00', 'TRUE', 'MARRUECOS', ''),
+('AR10', 'JUGUETERÍA', 'CONSOLA VIDEO', 442.54, '9/24/02', 'TRUE', 'USA', ''),
+('AR11', 'CERÁMICA', 'TUBOS', 168.43, '2/4/00', 'TRUE', 'CHINA', ''),
+('AR12', 'FERRETERÍA', 'LLAVE INGLESA', 24.4, '5/23/01', 'TRUE', 'USA', ''),
+('AR13', 'CONFECCIÓN', 'CAMISA CABALLERO', 67.13, '8/11/02', 'FALSE', 'ESPAÑA', ''),
+('AR14', 'JUGUETERÍA', 'TREN ELÉCTRICO', 1, '7/3/01', 'TRUE', 'JAPÓN', ''),
+('AR15', 'CERÁMICA', 'PLATO DECORATIVO', 54.09, '6/7/00', 'TRUE', 'CHINA', ''),
+('AR16', 'FERRETERÍA', 'ALICATES', 6.74, '4/17/00', 'TRUE', 'ITALIA', ''),
+('AR17', 'JUGUETERÍA', 'MUÑECA ANDADORA', 105.06, '1/4/01', 'FALSE', 'ESPAÑA', ''),
+('AR18', 'DEPORTES', 'PISTOLA OLÍMPICA', 46.73, '2/2/01', 'TRUE', 'SUECIA', ''),
+('AR19', 'CONFECCIÓN', 'BLUSA SRA.', 101.06, '3/18/00', 'TRUE', 'CHINA', ''),
+('AR20', 'CERÁMICA', 'JUEGO DE TE', 43.27, '1/15/01', 'TRUE', 'CHINA', ''),
+('AR21', 'CERÁMICA', 'CENICERO', 19.75, '7/2/01', 'TRUE', 'JAPÓN', ''),
+('AR22', 'FERRETERÍA', 'MARTILLO', 11.4, '9/4/01', 'FALSE', 'ESPAÑA', ''),
+('AR23', 'CONFECCIÓN', 'CAZADORA PIEL', 522.69, '7/10/01', 'TRUE', 'ITALIA', ''),
+('AR24', 'DEPORTES', 'BALÓN RUGBY', 111.64, '11/11/00', 'TRUE', 'USA', ''),
+('AR25', 'DEPORTES', 'BALÓN BALONCESTO', 75.27, '6/25/01', 'TRUE', 'JAPÓN', ''),
+('AR26', 'JUGUETERÍA', 'FUERTE DE SOLDADOS', 143.7, '11/25/00', 'TRUE', 'JAPÓN', ''),
+('AR27', 'CONFECCIÓN', 'ABRIGO CABALLERO', 257.5, '2/19/00', 'FALSE', 'ESPAÑA', ''),
+('AR28', 'FERRETERÍA', 'CORTATUBOS', 10.58, '10/3/01', 'FALSE', 'USA', ''),
+('AR29', 'JUGUETERÍA', 'PELOTAS JUEGO', 27, '6/30/01', 'TRUE', 'USA', ''),
+('AR30', 'CONFECCIÓN', 'FALDA SEÑORA', 41.31, '7/21/01', 'TRUE', 'CHINA', ''),
+('AR31', 'FERRETERÍA', 'BROCA', 8, '6/8/00', 'TRUE', 'ESPAÑA', ''),
+('AR32', 'CERÁMICA', 'TETERA', 79, '9/6/01', 'TRUE', 'CHINA', ''),
+('AR33', 'DEPORTES', 'GUITARRA ELÉCTRICA', 1, '4/14/01', 'FALSE', 'USA', ''),
+('AR34', 'FERRETERÍA', 'DESTORNILLADOR', 6.63, '10/22/00', 'TRUE', 'ESPAÑA', ''),
+('AR35', 'CERÁMICA', 'TETERA', 79, '9/6/01', 'TRUE', 'CHINA', ''),
+('AR36', 'FERRETERÍA', 'BROCA', 8, '6/8/00', 'TRUE', 'ESPAÑA', ''),
+('AR37', 'FERRETERÍA', 'ALICATES', 6.74, '4/17/00', 'TRUE', 'ITALIA', ''),
+('AR38', 'CERÁMICA', 'JUEGO DE TE', 43.27, '1/15/01', 'TRUE', 'CHINA', ''),
+('AR39', 'FERRETERÍA', 'MARTILLO', 11.4, '9/4/01', 'FALSE', 'ESPAÑA', ''),
+('AR40', 'JUGUETERÍA', 'MUÑECA ANDADORA', 105.06, '1/4/01', 'FALSE', 'ESPAÑA', ''),
+('AR41', 'DEPORTES', 'PISTOLA OLÍMPICA', 46.73, '2/2/01', 'TRUE', 'SUECIA', ''),
+('AR42', 'CONFECCIÓN', 'BLUSA SRA.', 101.06, '3/18/00', 'TRUE', 'CHINA', ''),
+('AR43', 'CERÁMICA', 'CENICERO', 19.75, '7/2/01', 'TRUE', 'JAPÓN', ''),
+('AR44', 'FERRETERÍA', 'MARTILLO', 11.4, '9/4/01', 'FALSE', 'ESPAÑA', ''),
+('AR45', 'JUGUETERÍA', 'MUÑECA ANDADORA', 105.06, '1/4/01', 'FALSE', 'ESPAÑA', ''),
+('AR46', 'DEPORTES', 'PISTOLA OLÍMPICA', 46.73, '2/2/01', 'TRUE', 'SUECIA', ''),
+('AR47', 'CONFECCIÓN', 'BLUSA SRA.', 101.06, '3/18/00', 'TRUE', 'CHINA', ''),
+('AR48', 'CERÁMICA', 'CENICERO', 19.75, '7/2/01', 'TRUE', 'JAPÓN', '');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
