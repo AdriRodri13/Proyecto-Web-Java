@@ -8,7 +8,6 @@ package es.adrian.IoC;
  *
  * @author Admin
  */
-public interface Empleados {
-    public String getTareas();
+public interface CreacionInformes {
     public String getInforme();
 }

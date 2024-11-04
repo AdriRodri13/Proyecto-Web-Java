@@ -10,9 +10,20 @@ package es.adrian.IoC;
  */
 public class JefeEmpleado implements Empleados{
     
+    private CreacionInformes informe;
+
+    public JefeEmpleado(CreacionInformes informe) {
+        this.informe = informe;
+    }
+    
     @Override
     public String getTareas(){
         return "Gestiono las cuestiones relativas a mis empleados de seccion";
+    }
+
+    @Override
+    public String getInforme() {
+        return "Informe creado por el jefe: "+this.informe.getInforme();
     }
     
 }
