@@ -9,6 +9,39 @@ package es.adrian.IoC;
  * @author Admin
  */
 public class SecretarioEmpleado implements Empleados {
+    
+    private CreacionInformes informeNuevo;
+    
+    private String email;
+    
+    private String nombreEmpresa;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
+    }
+
+    public CreacionInformes getInformeNuevo() {
+        return informeNuevo;
+    }
+
+    public void setInformeNuevo(CreacionInformes informeNuevo) {
+        this.informeNuevo = informeNuevo;
+    }
+    
+    
+    
 
     @Override
     public String getTareas() {
@@ -17,7 +50,7 @@ public class SecretarioEmpleado implements Empleados {
 
     @Override
     public String getInforme() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "Informe del secretario";
     }
 
     
